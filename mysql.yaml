@@ -14,4 +14,14 @@
       enabled: yes
 
   - name: connect to mysql server 
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.navyahomes.online
+    register: mysql_info        # taking the output for the above 3 lines, so that we will know whether the root password is set up or not
+
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "MYSQL info: {{ mysql_info }}"
+
     
